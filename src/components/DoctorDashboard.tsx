@@ -106,10 +106,10 @@ export const DoctorDashboard: React.FC<DoctorDashboardProps> = ({
         <div className="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] relative overflow-hidden">
           <div className="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600" />
 
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-2">
+          <div className="flex flex-col items-stretch justify-between gap-5 pt-2 xl:flex-row xl:items-center">
             
             {/* Doctor Info */}
-            <div className="flex items-center gap-4 sm:gap-5">
+            <div className="flex min-w-0 items-start gap-4 sm:gap-5">
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-600 to-teal-700 text-white flex items-center justify-center text-2xl font-black shadow-md border-2 border-white shrink-0">
                 {doctorData.avatarImage ? (
                   <img
@@ -121,12 +121,12 @@ export const DoctorDashboard: React.FC<DoctorDashboardProps> = ({
                   doctorData.avatarText
                 )}
               </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <h1 className="text-lg sm:text-2xl font-black text-slate-900">
+              <div className="min-w-0 space-y-1.5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h1 className="text-lg sm:text-2xl font-black leading-snug text-slate-900">
                     پنل اختصاصی مطب: {doctorData.name}
                   </h1>
-                  <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                  <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-bold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shrink-0">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                     <span>پزشک ارتوپد تاییدشده</span>
                   </span>
@@ -147,7 +147,7 @@ export const DoctorDashboard: React.FC<DoctorDashboardProps> = ({
             </div>
 
             {/* Status Switcher & Actions */}
-            <div className="flex flex-wrap items-center gap-2.5 self-stretch md:self-auto justify-end">
+            <div className="flex flex-wrap items-center gap-2.5">
               <button
                 onClick={() => setIsAcceptingAppointments(!isAcceptingAppointments)}
                 className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 border ${
@@ -179,7 +179,7 @@ export const DoctorDashboard: React.FC<DoctorDashboardProps> = ({
           </div>
 
           {/* 4 Metric KPI Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-100">
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 xl:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-100">
             <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200/70">
               <span className="text-xs text-slate-500 block mb-1">نوبت‌های رزرو شده:</span>
               <strong className="text-base sm:text-lg font-black text-slate-900 tabular-nums">
@@ -255,12 +255,12 @@ export const DoctorDashboard: React.FC<DoctorDashboardProps> = ({
         {activeTab === 'queue' && (
           <div className="space-y-4">
             {doctorAppointments.length > 0 ? (
-              <div className="bg-white rounded-3xl border border-slate-200/90 shadow-2xs overflow-hidden">
-                <div className="p-5 border-b border-slate-100 flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-slate-900">
+              <div className="bg-white rounded-3xl border border-slate-200/90 shadow-2xs">
+                <div className="p-4 sm:p-5 border-b border-slate-100 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                  <h3 className="text-sm font-bold text-slate-900 leading-7">
                     بیماران دارای نوبت ویزیت با {doctorData.name}
                   </h3>
-                  <span className="text-xs text-slate-500 font-mono">
+                  <span className="text-xs text-slate-500 shrink-0">
                     به‌روزرسانی خودکار نوبت‌ها
                   </span>
                 </div>
@@ -269,10 +269,10 @@ export const DoctorDashboard: React.FC<DoctorDashboardProps> = ({
                   {doctorAppointments.map((app) => (
                     <div
                       key={app.trackingCode}
-                      className="p-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 hover:bg-slate-50/60 transition-colors"
+                      className="p-4 sm:p-5 flex flex-col items-stretch justify-between gap-3 hover:bg-slate-50/60 transition-colors xl:flex-row xl:items-center"
                     >
                       <div className="space-y-1.5 flex-1 min-w-0">
-                        <div className="flex items-center gap-2.5">
+                        <div className="flex flex-wrap items-center gap-2">
                           <span className="text-sm font-bold text-slate-900">
                             {app.patientName}
                           </span>
@@ -293,7 +293,7 @@ export const DoctorDashboard: React.FC<DoctorDashboardProps> = ({
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-2 self-end lg:self-auto shrink-0">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span
                           className={`text-xs font-bold px-3 py-1 rounded-full ${
                             app.status === 'confirmed'

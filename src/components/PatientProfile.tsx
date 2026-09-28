@@ -114,19 +114,19 @@ export const PatientProfile: React.FC<PatientProfileProps> = ({
         <div className="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] relative overflow-hidden">
           <div className="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-600" />
 
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-2">
+          <div className="flex flex-col items-stretch justify-between gap-5 pt-2 xl:flex-row xl:items-center">
             
             {/* User Details */}
-            <div className="flex items-center gap-4 sm:gap-5">
+            <div className="flex min-w-0 items-start gap-4 sm:gap-5">
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center text-2xl font-black shadow-md border-2 border-white shrink-0">
                 {user.name[0] || 'ب'}
               </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <h1 className="text-lg sm:text-2xl font-black text-slate-900">
+              <div className="min-w-0 space-y-1.5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h1 className="text-lg sm:text-2xl font-black leading-snug text-slate-900">
                     پروفایل کاربری: {user.name}
                   </h1>
-                  <span className="bg-blue-50 text-blue-700 border border-blue-200/70 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+                  <span className="bg-blue-50 text-blue-700 border border-blue-200/70 text-[11px] font-bold px-2.5 py-0.5 rounded-full shrink-0">
                     بیمار عضو وب‌کلینیک
                   </span>
                 </div>
@@ -139,7 +139,7 @@ export const PatientProfile: React.FC<PatientProfileProps> = ({
                   <span className="font-sans">عضویت از: {user.createdAt}</span>
                 </div>
 
-                <div className="flex items-center gap-2 pt-1">
+                <div className="flex flex-wrap items-center gap-2 pt-1">
                   <span className="text-xs text-slate-600 font-medium">بیمه فعال:</span>
                   <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
                     <InsuranceLogo id={user.insuranceType} size={14} />
@@ -154,7 +154,7 @@ export const PatientProfile: React.FC<PatientProfileProps> = ({
             </div>
 
             {/* Quick Actions */}
-            <div className="flex items-center gap-2 self-stretch md:self-auto justify-end">
+            <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={onOpenBooking}
                 className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold transition-colors cursor-pointer shadow-xs"
@@ -237,7 +237,7 @@ export const PatientProfile: React.FC<PatientProfileProps> = ({
                   >
                     <div>
                       {/* Top Bar: Tracking code & Status */}
-                      <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-3">
                         <div className="flex items-center gap-2">
                           <span className="text-xs text-slate-500 font-medium">کد رهگیری نوبت:</span>
                           <span className="font-mono text-xs font-black text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200/60">
@@ -278,7 +278,7 @@ export const PatientProfile: React.FC<PatientProfileProps> = ({
                             <span className="leading-snug">{app.clinicAddress}</span>
                           </div>
 
-                          <div className="flex items-center justify-between pt-1 border-t border-slate-100 text-[11px]">
+                          <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-slate-100 text-[11px]">
                             <span className="text-slate-500">فرانشیز پرداختی بیمار:</span>
                             <span className="font-bold text-emerald-700">
                               {app.patientPayable.toLocaleString('fa-IR')} تومان ({app.supplementaryInsurance})
@@ -289,7 +289,7 @@ export const PatientProfile: React.FC<PatientProfileProps> = ({
                     </div>
 
                     {/* Actions */}
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                    <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
                       <button
                         onClick={() => handlePrintSlip(app)}
                         className="flex-1 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full text-xs font-bold transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5"
@@ -395,7 +395,7 @@ export const PatientProfile: React.FC<PatientProfileProps> = ({
                   </div>
                 </div>
 
-                <div className="bg-blue-50/70 p-3.5 rounded-2xl border border-blue-100 text-xs text-slate-700 flex items-center justify-between">
+                <div className="bg-blue-50/70 p-3.5 rounded-2xl border border-blue-100 text-xs text-slate-700 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                   <span>عمل جراحی: <strong>{v.procedureName}</strong> (تشخیص: {v.diagnosis})</span>
                   <span className="font-mono text-slate-500">مهلت اعتبار: {v.validUntil}</span>
                 </div>

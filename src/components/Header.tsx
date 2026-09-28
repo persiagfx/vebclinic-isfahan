@@ -79,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {/* Center Navigation Links (Clean pill active states) */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 text-xs font-semibold text-slate-600 shrink-0">
+          <nav className="hidden min-w-0 flex-1 items-center justify-end gap-0.5 overflow-x-auto text-xs font-semibold text-slate-600 lg:flex 2xl:gap-1.5">
             <button
               onClick={() => handleNavClick('home')}
               className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-all cursor-pointer ${
@@ -227,7 +227,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Direct Phone Number Pill */}
           <a
             href="tel:0218801010"
-            className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold transition-all cursor-pointer shrink-0 shadow-2xs font-mono"
+            className="hidden 2xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold transition-all cursor-pointer shrink-0 shadow-2xs font-mono"
             title="تماس فوری با رزرو نوبت"
           >
             <Phone className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
@@ -238,7 +238,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Search Pill Input (Responsive) */}
           <form 
             onSubmit={handleSearchSubmit}
-            className="hidden xl:flex items-center relative flex-1 max-w-[200px]"
+            className="hidden 2xl:flex items-center relative w-40 shrink-0"
           >
             <input
               type="text"
